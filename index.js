@@ -50,8 +50,15 @@ const generateManager = () => {
         {
             name: 'email' ,
             message: ('What is the manager email?'),
-            validate: emailInput {
-                
+            validate: emailInput => {
+                if (emailInput) {
+                    return true
+
+                } else {
+                    console.log('Please enter email of manager')
+                    return false
+                }
+
             }
         }
     ])
