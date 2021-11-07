@@ -22,5 +22,7 @@
   "dependencies": {
     "inquirer": "^8.1.2",
     "jest": "^27.1.0"
-  }
+  },
+  "devDependencies": {},
+  "keywords": []
 }
