@@ -7,22 +7,26 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/leonaysmael16/team-generator.git"
   },
-  "author": "",
+  "author": "Leona Y",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/leonaysmael16/team-generator/issues"
   },
   "homepage": "https://github.com/leonaysmael16/team-generator#readme",
   "dependencies": {
+    "express": "^4.17.1",
+    "fs": "^0.0.1-security",
     "inquirer": "^8.1.2",
-    "jest": "^27.1.0"
+    "jest": "^27.1.0",
+    "path": "^0.12.7"
   },
-  "devDependencies": {},
-  "keywords": []
+  "keywords": [],
+  "devDependencies": {}
 }
