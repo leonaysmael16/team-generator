@@ -1,12 +1,11 @@
-const employee = require('./lib/employee.js');
-const manager = require('./lib/manager.js');
-const engineer = require('./lib/engineer.js');
-const intern = require('./lib/intern.js');
+const Employee = require('./lib/employee.js');
+const Manager = require('./lib/manager.js');
+const Engineer = require('./lib/engineer.js');
+const Intern = require('./lib/intern.js');
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generateHTML = require('./src/generateHTML');
-const Manager = require('./lib/manager.js');
-const Engineer = require('./lib/engineer.js');
+
 
 const teamArray =[];
 
@@ -67,7 +66,7 @@ const generateManager = () => {
     .then(managerInput => {
         const {name, id, email, officeNumer} = managerInput
         const manager = new Manager(name, id, email, officeNumer)
-        teamMembersArray.push(manager)
+        teamArray.push(manager)
         console.log(manager)
         console.log('Successfully stored!')
     })
@@ -126,7 +125,7 @@ const createEmployee = () => {
         }
     ])
     .then(employeeData => {
-        let {name, id, email, role, GitHub, school, confirmCreateEmployee} = employeeData
+        let {name, id, email, role, GitHub, school, confirmEmployee} = employeeData
         let employee
         if(role === 'Engineer'){
             employee = new Engineer(name, id, email, GitHub)
@@ -136,3 +135,23 @@ const createEmployee = () => {
         }
     })
 }
+
+function writeToFile() {
+    fs.writeFile('.dist/index.html', data, err => {
+        if (err){
+            console.log(err)
+            return
+        } else {
+            console.log('Team successfully made')
+        }
+    })
+}
+
+generateManager()
+.then(createEmployee)
+.then(teamArray =>{
+    return generateHTML
+})
+.catch(err =>{
+    console.log(err)
+})
