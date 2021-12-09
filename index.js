@@ -9,7 +9,7 @@ const generateHTML = require('./src/generateHTML');
 
 const teamArray =[];
 
-const generateManager = () => {
+function generateManager() {
     console.log('Please answer the questions to generate your team profile')
     return inquirer.prompt([
         {
@@ -72,7 +72,7 @@ const generateManager = () => {
     })
 }
 
-const createEmployee = () => {
+function createEmployee () {
     console.log('Please answer the following questions')
     return inquirer.prompt([
         {
