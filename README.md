@@ -4,10 +4,8 @@
 
 This Project is designed to generate a company team profile for easy managing of teams
 
-![Screen Shot 2021-11-07 at 11 19 25 AM](https://user-images.githubusercontent.com/84559394/140658799-27aa4134-3cd6-4113-911c-dc8796f740dc.png)
+![Screen Shot 2021-12-09 at 9 14 22 PM](https://user-images.githubusercontent.com/84559394/145521816-95a5546c-fe54-4709-ad8b-93cf28a2154b.png)
 
-
-https://user-images.githubusercontent.com/84559394/145315433-a1e58a14-7b8a-4934-b4a9-9ca1bf1f6d90.mov
 
 
 # Tools for this Project
