@@ -6,7 +6,7 @@ This Project is designed to generate a company team profile for easy managing of
 
 ![Screen Shot 2021-12-09 at 9 14 22 PM](https://user-images.githubusercontent.com/84559394/145521816-95a5546c-fe54-4709-ad8b-93cf28a2154b.png)
 
-
+Link to Walkthrough Video: https://drive.google.com/file/d/1SrTl7r20uHA93RwUgKUy5gkv-q-hH7oK/view?usp=sharing
 
 # Tools for this Project
 
