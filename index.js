@@ -27,20 +27,22 @@ function generateManager() {
         {
            name: 'manager id',
            message: 'What id number of the manager?',
-           validate: idInput => { 
-               if (idInput) {
-                   return true;
+           validate: nameInput => { 
+               if (isNaN(nameInput)) {
+                console.log('Please enter the ID number of manager')
+                return false;
+
                } else {
-                   console.log('Please enter the ID number of manager')
-                   return false
+                   
+                   return true
                }
            }
         },
         {
-            name: 'phone number',
+            name: 'officeNumber',
             message: 'What is the phone number of the manager?',
-            validate: numberInput => {
-                if (numberInput) {
+            validate: nameInput => {
+                if (nameInput) {
                     return true
                 } else {
                     console.log('Please enter a phone number')
@@ -51,11 +53,12 @@ function generateManager() {
         {
             name: 'email' ,
             message: ('What is the manager email?'),
-            validate: emailInput => {
-                if (emailInput) {
+            validate: nameInput => {
+                if (isNaN(nameInput)) {
                     return true
 
                 } else {
+                    
                     console.log('Please enter email of manager')
                     return false
                 }
@@ -106,7 +109,7 @@ function createEmployee () {
             }
         },
         {
-            name:'GitHub username',
+            name:'GitHub',
             message: "What is the GitHub username of Engineer",
             when: (input) => input.role == 'Engineer',
             validate: nameInput => {
@@ -119,7 +122,7 @@ function createEmployee () {
         },
         {
             type: 'confirm',
-            name: 'confirmCreateEmployee',
+            name: 'confirmEmployee',
             message: 'Would you like to add more to the team?',
             default: false
         }
@@ -131,13 +134,20 @@ function createEmployee () {
             employee = new Engineer(name, id, email, GitHub)
             console.log(employee)
         } else if(role === 'Intern'){
-            
+            employee = new Intern(name, id, email, school)
+            console.log(employee)
+        }
+        teamArray.push(employee)
+        if (confirmEmployee) {
+            return createEmployee(teamArray)
+        } else {
+            return teamArray
         }
     })
 }
 
-function writeToFile() {
-    fs.writeFile('.dist/index.html', data, err => {
+function writeToFile(data) {
+    fs.writeFile('./dist/index.html', data, err => {
         if (err){
             console.log(err)
             return
@@ -150,7 +160,10 @@ function writeToFile() {
 generateManager()
 .then(createEmployee)
 .then(teamArray =>{
-    return generateHTML
+    return generateHTML(teamArray)
+})
+.then(pageHTML => {
+    return writeToFile(pageHTML)
 })
 .catch(err =>{
     console.log(err)

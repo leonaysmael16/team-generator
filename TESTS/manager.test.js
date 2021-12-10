@@ -1,6 +1,6 @@
 const { testing } = require('jest')
+
 const Manager = require('../lib/manager.js')
-const manager = require('./lib/manager.js')
 
 test('Testing for managers number', ()=> {
     const manager = new Manager('Matthew Bonner', 23,'matt.bonner@company.com', 8)

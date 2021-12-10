@@ -1,6 +1,7 @@
+const numberPrompt = require('inquirer/lib/prompts/number')
 const testing = require('jest')
+
 const Employee = require('../lib/employee')
-const employee = require('../lib/employee')
 
 test('Testing name is displayedd correctly', () => {
     const employee = new Employee('Leona Ysmael', 19, 'leona.ysmael@company.com')
@@ -9,7 +10,7 @@ test('Testing name is displayedd correctly', () => {
 
 test('Testing ID is displayed correctly', () => {
     const employee = new Employee ('Leona Ysmael', 19, 'leona.ysmael@company.com')
-    expect(employee.getID()).toEqual(expect.any(Number))
+    expect(employee.getId()).toEqual(expect.any(Number))
 })
 
 test('Testing email is displayed correctly', () => {

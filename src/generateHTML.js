@@ -1,3 +1,5 @@
+
+
 const createManager = function(manager){
     return `
     <div class='col-4 mt-3'>
@@ -59,25 +61,25 @@ generateHTML = (data) => {
     for(i = 0; i < data.length; i++){
         const employee = data[i]
         const employeeRole = employee.getRole()
-        if (role === 'Manager') {
+        if (employeeRole === 'Manager') {
             const cardManager = createManager(employee)
             cardArray.push(cardManager)
         }
-        if (role === 'Intern') {
+        if (employeeRole === 'Intern') {
             const cardIntern = createIntern(employee)
             cardArray.push(cardIntern)
         }
-        if (role ==='Engineer') {
+        if (employeeRole ==='Engineer') {
             const cardEngineer = createEngineer(employee)
             cardArray.push(cardEngineer)
         }
     }
     const teamCards = cardArray.join('')
-    const teamCreate = teamCreateCompleted(allCards)
+    const teamCreate = teamCreateCompleted(teamCards)
     return teamCreate
 }
 
-const teamCreateCompleted = function(allCards){
+const teamCreateCompleted = function(teamCards) {
     return `
     <!DOCTYPE html>
     <html lang="en">
@@ -96,7 +98,7 @@ const teamCreateCompleted = function(allCards){
         <main>
             <div class="container mt-4">
                 <div class="row justify-content-center" id="main-team">
-                    ${allCards}
+                    ${teamCards}
                 </div>
             </div>
         </main>
@@ -108,4 +110,4 @@ const teamCreateCompleted = function(allCards){
   `;
 }
 
-module.exports =generateHTML
+module.exports = generateHTML
